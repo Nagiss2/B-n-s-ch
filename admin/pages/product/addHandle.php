@@ -19,7 +19,7 @@
 		$_FILES['myfile']['name'] = $sku.".jpg";
 		move_uploaded_file($_FILES['myfile']['tmp_name'],'../../../images/'.$_FILES['myfile']['name']);
 		//$image= $_FILES['myfile']['txtSKU'];
-		$image= '\images'.$_FILES['myfile']['name'];
+		$image= '.\\\\images\\\\'.$_FILES['myfile']['name'];
 		echo $image;
 		// if($image != null)
 		// 		{

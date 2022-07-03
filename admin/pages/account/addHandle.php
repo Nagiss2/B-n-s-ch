@@ -28,11 +28,12 @@
 				$last_name = $_POST["txtLastName"];
 				$phone = $_POST["txtPhonenumber"];
 				$address = $_POST["txtAddress"];
-				$pass = md5($_POST["txtPassword"]);
+				//$pass = md5($_POST["txtPassword"]);
+				$password = $_POST['txtPassword'];
+                $password= md5($password);
 				$role = $_POST["RoleSelect"];					
-
 					$sql = "INSERT INTO user (User_Role, Email, Password, Last_Name, First_Name, Address, Phonenumber)
-						VALUES ($role, '$email', '$pass', '$last_name', '$first_name', '$address', '$phone')";
+						VALUES ($role, '$email', '$password', '$last_name', '$first_name', '$address', '$phone')";
 					$result = Insert($sql);
 		
 					if($result == true){

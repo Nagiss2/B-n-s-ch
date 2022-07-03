@@ -280,8 +280,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `First_Name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Phonenumber` varchar(12) CHARACTER SET utf8 DEFAULT NULL,
-  `Verification_Code` varchar(264) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Verified` int(11) DEFAULT NULL,
+
   PRIMARY KEY (`User_Id`),
   UNIQUE KEY `Email` (`Email`),
   KEY `User_Role` (`User_Role`)
@@ -291,14 +290,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`User_Id`, `User_Role`, `Email`, `Password`, `Last_Name`, `First_Name`, `Address`, `Phonenumber`, `Verification_Code`, `Verified`) VALUES
-(1, 1, 'admin@ebook.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Admin', NULL, '', NULL, 1),
-(2, 0, 'nnd@ebook.com', 'a90a53fab66b41897417f26795d4e1a7', 'NND', NULL, NULL, '0345678912', NULL, NULL),
-(3, 0, 'lmh@ebook.com', '78bc33b76c96dd9b74f85db936aacc7f', 'LMH', NULL, NULL, '0123456798', NULL, NULL),
-(5, 0, 'abc@ebook.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 0, '$email', '$password', '$last_name', '$first_name', '$address', '$phone', '$verificationCode', 0),
-(7, 0, 'minhhuy243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264', 'f77f5bbf3b74e808b283c7a872057ceb', 1),
-(10, 0, 'huylk243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264', '0d58ecb945704d7db67c521f6d931393', 1);
+INSERT INTO `user` (`User_Id`, `User_Role`, `Email`, `Password`, `Last_Name`, `First_Name`, `Address`, `Phonenumber`) VALUES
+(1, 1, 'admin@ebook.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Admin', NULL, ''),
+(2, 0, 'nnd@ebook.com', 'a90a53fab66b41897417f26795d4e1a7', 'NND', NULL, NULL, '0345678912'),
+(3, 0, 'lmh@ebook.com', '78bc33b76c96dd9b74f85db936aacc7f', 'LMH', NULL, NULL, '0123456798'),
+(7, 0, 'minhhuy243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264'),
+(10, 0, 'huylk243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264');
 
 -- --------------------------------------------------------
 

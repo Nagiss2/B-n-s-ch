@@ -45,7 +45,7 @@
     </fieldset>
     <fieldset>
         Password
-        <input style="margin-bottom:7px;" class="form-control" type="text" name="txtPassword" value="" />
+        <input style="margin-bottom:7px;" class="form-control" type="password" name="txtPassword" value="" />
     </fieldset>
     <fieldset>
         Phone Number
@@ -69,7 +69,6 @@
                                 <option value="1">Admin</option>';
                     }
                 ?>
-                
             </select>
     </fieldset>
 

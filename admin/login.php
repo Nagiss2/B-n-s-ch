@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+    if(isset($_SESSION['username'])){
+        if($_SESSION["role"]==1){
+        header('location:index.php');
+        }
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -36,16 +45,28 @@
 
                                 <h4 class="auth-title">Sign In</h4>
 
-                                <form action="#">
+                                <?php
+                                    if(isset($_GET["error"]))
+                                    {		
+                                        if($_GET["error"] == "ChuaTonTai")
+                                            echo '<p class="errorMessage"> Tài khoản không tồn tại </p>';
+                                        elseif($_GET["error"] == "txbRong")
+                                            echo '<p class="errorMessage"> Vui lòng nhập đầy đủ thông tin </p>';
+                                        elseif($_GET["error"] == "SaiMatKhau")
+                                            echo '<p class="errorMessage"> Mật khẩu chưa chính xác </p>';
+                                    }						
+                                ?>
+
+                                <form action="./handleLogin.php" method="POST">
 
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <input class="form-control" type="email" id="emailaddress" name="username" required="" placeholder="Enter your email">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -56,7 +77,7 @@
                                     </div>
 
                                     <div class="form-group mb-0 text-center">
-                                        <button class="btn btn-danger btn-block" type="submit"> Log In 
+                                        <button class="btn btn-danger btn-block" type="submit" name="loginAdmin"> Log In 
                                             
                                         </button>
                                     </div>
@@ -101,11 +122,7 @@
         </div>
         <!-- end page -->
 
-
-
-
-
-        <footer class="footer footer-alt">
+      <footer class="footer footer-alt">
             2019 &copy; Upvex theme by <a href="" class="text-muted">Coderthemes</a> 
         </footer>
 

@@ -2,7 +2,9 @@
 	session_start();
 	include("../DBConnect.php");
 	
-	//Kiểm tra có đăng nhập với quyền Admin chưa?
+	if(!isset($_SESSION['username'])){
+        header('location:login.php');
+    }
     
 ?>
 
@@ -72,7 +74,6 @@
 			?>
         </div>
 
-    
         </div>
         <!-- END wrapper  -->
 

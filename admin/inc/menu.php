@@ -31,13 +31,7 @@
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                            <div class="dropdown-divider"></div>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out"></i>
-                                <span>Logout</span>
-                            </a>
-
+                            <a href="handleLogout.php">Logout</a>
                         </div>
                     </li>
 

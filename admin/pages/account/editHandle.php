@@ -10,28 +10,22 @@
         $email = $_POST["txtEmail"];
 		$phone = $_POST["txtPhonenumber"];
 		$address = $_POST["txtAddress"];
-        //$password = $_POST["txtPassword"];
+        $password = md5($_POST["txtPassword"]);
 		$role = $_POST["RoleSelect"];
 
-		$sql = "UPDATE `ebook`.`user` 
-		SET `User_Role`= $role,
-			`First_Name` = '$firstname',
-			`Last_Name`= '$lastname',  
-			`Phonenumber`='$phone', 
-			`Address`='$address',
-		WHERE User_Id = $id";
 		
-
+		$updatesql = "UPDATE `ebook`.`user` SET `User_Role`= $role, `First_Name` = '$firstname', `Last_Name`= '$lastname',  `Phonenumber`='$phone', `Address`='$address', `Password` = '$password' WHERE (`User_Id` = '$id')";
+			
 		$url = '../../index.php?act=1&sub=1';
 		#Thực hiện câu truy vấn để UPDATE dữ liệu mới
-		$result = Insert($sql);
+		$result = Insert($updatesql);
 		if($result == true){
 			echo "<script type='text/javascript'>alert('Sửa tài khoản thành công');</script>";
 			DataProvider::ChangeURL($url);
 		}
 		else{
 			echo "<script type='text/javascript'>alert('Đã xảy ra lỗi khi sửa tài khoản');</script>";
-			DataProvider::ChangeURL($url);
+			//DataProvider::ChangeURL($url);
 		}
 	}
 ?>
